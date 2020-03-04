@@ -1,0 +1,21 @@
+[core]
+    editor = vim
+
+[user]
+    email = @git.email@
+    name = @git.name@
+
+[diff]
+    tool = meld
+
+[http]
+    sslverify = false
+
+[alias]
+    unstage = reset HEAD
+
+[gui]
+    spellingdictionary = none
+    tabsize = 4
+    fontui = -family \"DejaVu Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+    fontdiff = -family \"Hack\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
