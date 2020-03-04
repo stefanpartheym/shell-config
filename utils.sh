@@ -52,7 +52,7 @@ case "`uname`" in
     "Darwin") export PLATFORM_MAC=1;;
 esac
 
-if [ "$PLATFORM_MAC" -eq 1 ]; then
+if [[ "$PLATFORM_MAC" -eq 1 ]]; then
     PKG_INSTALL="brew install"
 else
     PKG_INSTALL="yay -S"
