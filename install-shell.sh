@@ -14,7 +14,7 @@ fish_path=`which fish`
 
 step "Configuring fish as default shell"
 
-cat /etc/shells | grep fish || \
+cat /etc/shells | grep fish > /dev/null || \
 sudo bash -c "echo \"$fish_path\" >> /etc/shells" && \
 chsh -s $fish_path
 result
