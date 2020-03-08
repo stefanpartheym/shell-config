@@ -25,7 +25,7 @@ function prompt {
         read_args="-p"
         read_prompt="$2"
         if [ -n "$3" ]; then
-            read_prompt="$read_prompt($3) "
+            read_prompt="$read_prompt[$3] "
         fi
     fi
 
