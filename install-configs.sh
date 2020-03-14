@@ -10,6 +10,7 @@ source_dir=./configs
 destination_dir=~
 
 fishconfig="config.fish"
+fishfile="fishfile"
 dot_file_gitconfig="gitconfig"
 dot_file_tmuxconfig="tmux.conf"
 
@@ -39,7 +40,8 @@ fi
 step "Installing fish configuration"
 fish_config_dir="${destination_dir}/.config/fish"
 mkdir -p "$fish_config_dir" && \
-cp "${source_dir}/${fishconfig}" "${fish_config_dir}/${fishconfig}"
+cp "${source_dir}/fish/${fishconfig}" "${fish_config_dir}/${fishconfig}" && \
+cp "${source_dir}/fish/${fishfile}" "${fish_config_dir}/${fishfile}"
 result
 
 step "Installing tmux configuration"

@@ -12,6 +12,10 @@ alias gl="git log --format=oneline --decorate"
 alias gg="git gui"
 alias gdd="git difftool -d"
 
+# Aliases for git extensions (stefanpartheym/fish-git-extensions.git)
+alias gcob="gitext_checkout"
+alias gadd="gitext_add"
+
 function gitworkflow
     set action $argv[1]
     set source $argv[2]
