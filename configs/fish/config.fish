@@ -5,6 +5,9 @@ if not functions -q fisher
     fish -c fisher
 end
 
+# Docker aliases
+alias dc="docker-compose"
+
 # Git aliases
 alias gs="git status"
 alias gb="git branch"
