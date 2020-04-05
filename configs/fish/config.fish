@@ -5,6 +5,9 @@ if not functions -q fisher
     fish -c fisher
 end
 
+# Configure PATH
+set -gx PATH $PATH ~/bin
+
 # Docker aliases
 alias dc="docker-compose"
 
