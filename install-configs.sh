@@ -21,9 +21,12 @@ if [ -f "${destination_dir}/.${dot_file_gitconfig}" ]; then
 fi
 
 if [ "$install_gitconfig" == "y" ]; then
+    current_git_user_email=`git config user.email`
+    current_git_user_name=`git config user.name`
+
     step "Configuring git"
-    read -p "Git user email: " git_user_email && \
-    read -p "Git user name: " git_user_name
+    prompt git_user_email "Git user email " "$current_git_user_email" && \
+    prompt git_user_name "Git user name " "$current_git_user_name"
     result
 
     dot_file_gitconfig_content=`cat "${source_dir}/${dot_file_gitconfig}"`

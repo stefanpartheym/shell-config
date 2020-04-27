@@ -53,7 +53,9 @@ case "`uname`" in
 esac
 
 if [[ "$PLATFORM_MAC" -eq 1 ]]; then
+    # No need for sudo on MacOS
     PKG_INSTALL="brew install"
 else
-    PKG_INSTALL="yay -S"
+    # Use sudo on ArchLinux
+    PKG_INSTALL="sudo pacman -S"
 fi

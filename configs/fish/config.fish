@@ -15,6 +15,7 @@ alias dc="docker-compose"
 alias gs="git status"
 alias gb="git branch"
 alias gl="git log --format=oneline --decorate"
+alias gcm="git commit -m"
 alias gg="git gui"
 alias gdd="git difftool -d"
 
