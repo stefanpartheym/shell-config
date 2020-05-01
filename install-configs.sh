@@ -9,11 +9,11 @@ source utils.sh
 source_dir=./configs
 destination_dir=~
 
+nvimconfig="init.vim"
 fishconfig="config.fish"
 fishfile="fishfile"
 dot_file_gitconfig="gitconfig"
 dot_file_tmuxconfig="tmux.conf"
-dot_file_vim="vimrc"
 
 install_gitconfig="y"
 
@@ -52,6 +52,8 @@ step "Installing tmux configuration"
 cp "${source_dir}/${dot_file_tmuxconfig}" "${destination_dir}/.${dot_file_tmuxconfig}"
 result
 
-step "Installing vim configuration"
-cp "${source_dir}/${dot_file_vim}" "${destination_dir}/.${dot_file_vim}"
+nvim_config_dir="${destination_dir}/.config/nvim"
+step "Installing vim configuration (for nvim)"
+mkdir -p $nvim_config_dir && \
+cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}"
 result
