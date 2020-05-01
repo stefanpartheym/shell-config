@@ -53,7 +53,9 @@ cp "${source_dir}/${dot_file_tmuxconfig}" "${destination_dir}/.${dot_file_tmuxco
 result
 
 nvim_config_dir="${destination_dir}/.config/nvim"
-step "Installing vim configuration (for nvim)"
+step "Installing vim configuration files (nvim)"
 mkdir -p $nvim_config_dir && \
-cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}"
+mkdir -p ${nvim_config_dir}/ftplugin && \
+cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}" && \
+cp ${source_dir}/nvim/ftplugin/* "${nvim_config_dir}/ftplugin/" && \
 result
