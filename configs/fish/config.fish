@@ -8,6 +8,9 @@ end
 # Configure PATH
 set -gx PATH $PATH ~/bin
 
+# Aliases
+alias vim="nvim"
+
 # Docker aliases
 alias dc="docker-compose"
 
