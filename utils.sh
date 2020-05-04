@@ -56,6 +56,11 @@ if [[ "$PLATFORM_MAC" -eq 1 ]]; then
     # No need for sudo on MacOS
     PKG_INSTALL="brew install"
 else
-    # Use sudo on ArchLinux
-    PKG_INSTALL="sudo pacman -S"
+    # Use pacman if available (Arch).
+    # Assume a Debian based distro in case it's not Arch and use apt.
+    which pacman && \
+        PKG_INSTALL="pacman -S" || \
+        PKG_INSTALL="apt install"
+    # No need for sudo if we are already root
+    test "`whoami`" == "root" || PKG_INSTALL="sudo $PKG_INSTALL"
 fi

@@ -8,8 +8,8 @@
 
 source utils.sh
 
-step "Installing fish shell and tmux"
-$PKG_INSTALL fish tmux
+step "Installing fish shell"
+$PKG_INSTALL fish
 result
 
 fish_path=`which fish`
