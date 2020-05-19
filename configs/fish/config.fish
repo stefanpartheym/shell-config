@@ -5,8 +5,9 @@ if not functions -q fisher
     fish -c fisher
 end
 
-# Configure PATH
+# Configure environment variables
 set -gx PATH $PATH ~/bin
+set -gx EDITOR nvim
 
 # Docker aliases
 alias dc="docker-compose"
