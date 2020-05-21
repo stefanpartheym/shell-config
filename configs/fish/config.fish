@@ -18,7 +18,9 @@ alias gb="git branch"
 alias gl="git log --format=oneline --decorate"
 alias gcm="git commit -m"
 alias gg="git gui"
-alias gdd="git difftool -d"
+function gdd --wraps='git difftool -d' --description 'alias gdd=git difftool -d'
+  git difftool -d $argv &
+end
 
 # Aliases for git extensions (stefanpartheym/fish-git-extensions.git)
 alias gcob="gitext_checkout"
