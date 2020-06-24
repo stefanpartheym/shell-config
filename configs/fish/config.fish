@@ -6,7 +6,6 @@ if not functions -q fisher
 end
 
 # Configure environment variables
-set -gx PATH $PATH ~/bin
 set -gx EDITOR nvim
 
 # Docker aliases
