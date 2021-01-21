@@ -5,6 +5,9 @@
     email = @git.email@
     name = @git.name@
 
+[init]
+    defaultBranch = master
+
 [diff]
     tool = meld
 
