@@ -9,8 +9,9 @@ end
 set -gx PATH $PATH $HOME/bin
 set -gx EDITOR nvim
 
-# Docker aliases
+# Docker and Kubernetes aliases
 alias dc="docker-compose"
+alias kc="kubectl"
 
 # Git aliases
 alias gs="git status"
