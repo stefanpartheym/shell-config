@@ -11,7 +11,7 @@ destination_dir=~
 
 nvimconfig="init.vim"
 fishconfig="config.fish"
-fishfile="fishfile"
+fishfile="fish_plugins"
 dot_file_gitconfig="gitconfig"
 dot_file_tmuxconfig="tmux.conf"
 
