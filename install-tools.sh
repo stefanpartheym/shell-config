@@ -18,6 +18,10 @@ step "Installing neovim (replacement for vim)"
 $PKG_INSTALL neovim
 result
 
+step "Installing exa (replacement for ls)"
+$PKG_INSTALL exa
+result
+
 step "Installing tmux"
 $PKG_INSTALL tmux
 result
