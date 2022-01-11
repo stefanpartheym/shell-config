@@ -57,5 +57,4 @@ step "Installing vim configuration files (nvim)"
 mkdir -p $nvim_config_dir && \
 mkdir -p ${nvim_config_dir}/ftplugin && \
 cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}" && \
-cp ${source_dir}/nvim/ftplugin/* "${nvim_config_dir}/ftplugin/" && \
 result
