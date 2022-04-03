@@ -35,4 +35,5 @@ alias release="gitext_release"
 # Tool dependant aliases
 if type -f exa &> /dev/null
   alias ls="exa --icons"
+  alias la="ls -la"
 end
