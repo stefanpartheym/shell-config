@@ -9,7 +9,7 @@ source utils.sh
 source_dir=./configs
 destination_dir=~
 
-nvimconfig="init.vim"
+nvimconfig="init.lua"
 fishconfig="config.fish"
 fishfile="fish_plugins"
 dot_file_gitconfig="gitconfig"
