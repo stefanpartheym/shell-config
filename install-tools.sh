@@ -2,8 +2,6 @@
 
 #
 # Installer for additional tools (tmux, nvim, ...).
-# Do NOT run this with sudo! Specific commands in this script will be executed
-# with sudo not all.
 #
 
 source utils.sh
@@ -18,8 +16,8 @@ step "Installing neovim (replacement for vim)"
 $PKG_INSTALL neovim
 result
 
-step "Installing exa (replacement for ls)"
-$PKG_INSTALL exa
+step "Installing eza (replacement for ls)"
+$PKG_INSTALL eza
 result
 
 step "Installing tmux"
