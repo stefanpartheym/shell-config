@@ -21,7 +21,6 @@ alias gs="git status"
 alias gb="git branch"
 alias gl="git log --format=oneline --decorate"
 alias gcm="git commit -m"
-alias gg="git gui"
 function gdd --wraps='git difftool -d' --description 'alias gdd=git difftool -d'
     git difftool -d $argv &
 end
@@ -29,8 +28,6 @@ end
 # Aliases for git extensions (stefanpartheym/fish-git-extensions.git)
 alias gcob="gitext_checkout"
 alias gadd="gitext_add"
-alias stage="gitext_stage"
-alias release="gitext_release"
 
 # Tool dependant aliases
 if type -f eza &>/dev/null
