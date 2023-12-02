@@ -1,36 +1,56 @@
-# Bootstrap fisher package manager installation
+#
+# Bootstrap package manager
+#
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c "fisher update"
 end
 
+#
+# Setup environment
+#
+
 # Disable fish greeting
 set fish_greeting
-
 # Configure environment variables
 set -gx PATH $PATH $HOME/bin
 set -gx EDITOR nvim
 
-# Docker and Kubernetes aliases
-alias dc="docker-compose"
-alias kc="kubectl"
+#
+# Setup aliases
+#
 
-# Git aliases
-alias gs="git status"
-alias gb="git branch"
-alias gl="git log --format=oneline --decorate"
-alias gcm="git commit -m"
-function gdd --wraps='git difftool -d' --description 'alias gdd=git difftool -d'
-    git difftool -d $argv &
+# Git
+if type -f git &>/dev/null
+    alias gs="git status"
+    alias gb="git branch"
+    alias gl="git log --format=oneline --decorate"
+    alias gcm="git commit -m"
+    function gdd --wraps='git difftool -d' --description 'alias gdd=git difftool -d'
+        git difftool -d $argv &
+    end
+    # Aliases for git extensions (stefanpartheym/fish-git-extensions.git)
+    alias gcob="gitext_checkout"
+    alias gadd="gitext_add"
 end
-
-# Aliases for git extensions (stefanpartheym/fish-git-extensions.git)
-alias gcob="gitext_checkout"
-alias gadd="gitext_add"
-
-# Tool dependant aliases
+# Docker
+if type -f docker &>/dev/null
+    alias dc="docker compose"
+end
+# Kubernetes
+if type -f kubectl &>/dev/null
+    alias kc="kubectl"
+end
+# Other
 if type -f eza &>/dev/null
     alias ls="eza --icons"
     alias la="ls -la"
+end
+
+#
+# Load custom config
+#
+if test -f ~/.config/fish/custom.fish
+    source ~/.config/fish/custom.fish
 end
