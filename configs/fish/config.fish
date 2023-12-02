@@ -52,7 +52,9 @@ end
 # Setup tools
 #
 
-zoxide init fish | source
+if type -f zoxide &>/dev/null
+    zoxide init fish | source
+end
 
 #
 # Load custom config

@@ -16,10 +16,6 @@ step "Installing fzf (fuzzy finder)"
 $PKG_INSTALL fzf
 result
 
-step "Installing neovim (replacement for vim)"
-$PKG_INSTALL neovim
-result
-
 step "Installing zoxide (replacement for cd)"
 $PKG_INSTALL zoxide
 result
@@ -32,8 +28,8 @@ step "Installing bat (replacement for cat)"
 $PKG_INSTALL bat
 result
 
-step "Installing rg (replacement for grep)"
-$PKG_INSTALL rg
+step "Installing ripgrep (replacement for grep)"
+$PKG_INSTALL ripgrep
 result
 
 step "Installing jq (Command-line JSON processor)"
@@ -42,4 +38,8 @@ result
 
 step "Installing tmux"
 $PKG_INSTALL tmux
+result
+
+step "Installing neovim (replacement for vim)"
+$PKG_INSTALL neovim
 result
