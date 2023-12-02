@@ -58,7 +58,7 @@ if [[ "$PLATFORM_MAC" -eq 1 ]]; then
 else
   # Use pacman if available (Arch).
   # Assume a Debian based distro in case it's not Arch and use apt.
-  which pacman &&
+  which pacman &>/dev/null &&
     PKG_INSTALL="pacman -S --needed" ||
     PKG_INSTALL="apt install"
   # No need for sudo if we are already root
