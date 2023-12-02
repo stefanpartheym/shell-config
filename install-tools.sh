@@ -20,8 +20,24 @@ step "Installing neovim (replacement for vim)"
 $PKG_INSTALL neovim
 result
 
+step "Installing zoxide (replacement for cd)"
+$PKG_INSTALL zoxide
+result
+
 step "Installing eza (replacement for ls)"
 $PKG_INSTALL eza
+result
+
+step "Installing bat (replacement for cat)"
+$PKG_INSTALL bat
+result
+
+step "Installing rg (replacement for grep)"
+$PKG_INSTALL rg
+result
+
+step "Installing jq (Command-line JSON processor)"
+$PKG_INSTALL jq
 result
 
 step "Installing tmux"

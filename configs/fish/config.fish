@@ -49,6 +49,12 @@ if type -f eza &>/dev/null
 end
 
 #
+# Setup tools
+#
+
+zoxide init fish | source
+
+#
 # Load custom config
 #
 if test -f ~/.config/fish/custom.fish
