@@ -14,7 +14,7 @@ end
 # Disable fish greeting
 set fish_greeting
 # Configure environment variables
-set -gx PATH $PATH $HOME/bin
+set -gx PATH $PATH $HOME/.local/bin
 set -gx EDITOR nvim
 
 #
