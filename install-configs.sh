@@ -14,6 +14,8 @@ fishconfig="config.fish"
 fishfile="fish_plugins"
 dot_file_gitconfig="gitconfig"
 dot_file_tmuxconfig="tmux.conf"
+tmux_destination_dir="${destination_dir}/.config/tmux"
+tmux_plugins_destination_dir="${tmux_destination_dir}/plugins"
 
 #
 # Install git config
@@ -61,7 +63,12 @@ result
 #
 
 step "Installing tmux configuration"
-cp "${source_dir}/${dot_file_tmuxconfig}" "${destination_dir}/.${dot_file_tmuxconfig}"
+mkdir -p $tmux_plugins_destination_dir &&
+  cp "${source_dir}/${dot_file_tmuxconfig}" "${tmux_destination_dir}/${dot_file_tmuxconfig}" &&
+  (
+    test -d "${tmux_plugins_destination_dir}/tpm" ||
+      git clone https://github.com/tmux-plugins/tpm "${tmux_plugins_destination_dir}/tpm"
+  )
 result
 
 #
@@ -71,6 +78,5 @@ result
 nvim_config_dir="${destination_dir}/.config/nvim"
 step "Installing vim configuration files (nvim)"
 mkdir -p $nvim_config_dir &&
-  mkdir -p ${nvim_config_dir}/ftplugin &&
-  cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}" &&
-  result
+  cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}"
+result
