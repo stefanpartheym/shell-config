@@ -12,6 +12,10 @@ if [ $PLATFORM_LINUX -eq 1 ]; then
   result
 fi
 
+step "Installing fzf (fuzzy finder)"
+$PKG_INSTALL fzf
+result
+
 step "Installing neovim (replacement for vim)"
 $PKG_INSTALL neovim
 result
