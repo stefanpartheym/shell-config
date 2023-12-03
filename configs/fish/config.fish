@@ -35,8 +35,8 @@ if type -f git &>/dev/null
     alias gadd="gitext_add"
 end
 # Docker
-if type -f docker &>/dev/null
-    alias dc="docker compose"
+if type -f docker-compose &>/dev/null
+    alias dc="docker-compose"
 end
 # Kubernetes
 if type -f kubectl &>/dev/null
