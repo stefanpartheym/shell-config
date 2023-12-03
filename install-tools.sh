@@ -40,6 +40,10 @@ step "Installing tmux"
 $PKG_INSTALL tmux
 result
 
+step "Installing ranger and dependencies (file manager)"
+$PKG_INSTALL ranger ueberzug atool lynx highlight mediainfo poppler
+result
+
 step "Installing neovim (replacement for vim)"
 $PKG_INSTALL neovim
 result

@@ -12,6 +12,7 @@ destination_dir=~
 nvimconfig="init.lua"
 fishconfig="config.fish"
 fishfile="fish_plugins"
+rangerconfig="rc.conf"
 dot_file_gitconfig="gitconfig"
 dot_file_tmuxconfig="tmux.conf"
 tmux_destination_dir="${destination_dir}/.config/tmux"
@@ -51,8 +52,8 @@ fi
 # Install fish config
 #
 
-step "Installing fish configuration"
 fish_config_dir="${destination_dir}/.config/fish"
+step "Installing fish configuration"
 mkdir -p "$fish_config_dir" &&
   cp "${source_dir}/fish/${fishconfig}" "${fish_config_dir}/${fishconfig}" &&
   cp "${source_dir}/fish/${fishfile}" "${fish_config_dir}/${fishfile}"
@@ -72,11 +73,26 @@ mkdir -p $tmux_plugins_destination_dir &&
 result
 
 #
+# Install ranger config
+#
+
+ranger_config_dir="${destination_dir}/.config/ranger"
+ranger_devicons_dir="${ranger_config_dir}/plugins/ranger_devicons"
+step "Installing ranger configuration"
+mkdir -p $ranger_config_dir &&
+  cp "${source_dir}/ranger/${rangerconfig}" "${ranger_config_dir}/${rangerconfig}" &&
+  (
+    test -d $ranger_devicons_dir ||
+      git clone https://github.com/alexanderjeurissen/ranger_devicons $ranger_devicons_dir
+  )
+result
+
+#
 # Install vanilla neovim config
 #
 
 nvim_config_dir="${destination_dir}/.config/nvim"
-step "Installing vim configuration files (nvim)"
+step "Installing neovim configuration"
 mkdir -p $nvim_config_dir &&
   cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}"
 result
