@@ -49,6 +49,20 @@ if type -f eza &>/dev/null
 end
 
 #
+# Setup functions
+#
+
+# Create or attach to the default session
+function td --description 'Open tmux default session'
+    set session_name default
+    if tmux ls 2>/dev/null | cut -d ':' -f 1 | grep -qE "^$session_name\$"
+        tmux attach -t "$session_name"
+    else
+        tmux new -s "$session_name"
+    end
+end
+
+#
 # Setup tools
 #
 
