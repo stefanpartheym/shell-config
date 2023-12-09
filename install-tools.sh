@@ -7,8 +7,8 @@
 source utils.sh
 
 if [ $PLATFORM_LINUX -eq 1 ]; then
-  step "Installing xsel (clipboard tool)"
-  $PKG_INSTALL xsel
+  step "Installing xclip (clipboard tool)"
+  $PKG_INSTALL xclip
   result
 fi
 

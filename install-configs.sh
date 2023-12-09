@@ -12,7 +12,6 @@ destination_dir=~
 nvimconfig="init.lua"
 fishconfig="config.fish"
 fishfile="fish_plugins"
-rangerconfig="rc.conf"
 dot_file_gitconfig="gitconfig"
 dot_file_tmuxconfig="tmux.conf"
 tmux_destination_dir="${destination_dir}/.config/tmux"
