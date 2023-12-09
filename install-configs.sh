@@ -80,7 +80,7 @@ ranger_config_dir="${destination_dir}/.config/ranger"
 ranger_devicons_dir="${ranger_config_dir}/plugins/ranger_devicons"
 step "Installing ranger configuration"
 mkdir -p $ranger_config_dir &&
-  cp "${source_dir}/ranger/${rangerconfig}" "${ranger_config_dir}/${rangerconfig}" &&
+  cp ${source_dir}/ranger/* "${ranger_config_dir}/" &&
   (
     test -d $ranger_devicons_dir ||
       git clone https://github.com/alexanderjeurissen/ranger_devicons $ranger_devicons_dir
