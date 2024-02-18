@@ -28,6 +28,10 @@ step "Installing bat (replacement for cat)"
 $PKG_INSTALL bat
 result
 
+step "Installing fd (replacement for locate)"
+$PKG_INSTALL fd
+result
+
 step "Installing ripgrep (replacement for grep)"
 $PKG_INSTALL ripgrep
 result
@@ -40,8 +44,8 @@ step "Installing tmux"
 $PKG_INSTALL tmux
 result
 
-step "Installing ranger and dependencies (file manager)"
-$PKG_INSTALL ranger ueberzug atool lynx highlight mediainfo poppler
+step "Installing yazi and dependencies (cli file manager)"
+$PKG_INSTALL yazi unarchiver ffmpegthumbnailer poppler
 result
 
 step "Installing neovim (replacement for vim)"

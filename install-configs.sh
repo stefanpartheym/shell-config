@@ -72,21 +72,6 @@ mkdir -p $tmux_plugins_destination_dir &&
 result
 
 #
-# Install ranger config
-#
-
-ranger_config_dir="${destination_dir}/.config/ranger"
-ranger_devicons_dir="${ranger_config_dir}/plugins/ranger_devicons"
-step "Installing ranger configuration"
-mkdir -p $ranger_config_dir &&
-  cp ${source_dir}/ranger/* "${ranger_config_dir}/" &&
-  (
-    test -d $ranger_devicons_dir ||
-      git clone https://github.com/alexanderjeurissen/ranger_devicons $ranger_devicons_dir
-  )
-result
-
-#
 # Install vanilla neovim config
 #
 
