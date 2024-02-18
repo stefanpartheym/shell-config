@@ -59,7 +59,7 @@ else
   # Use pacman if available (Arch).
   # Assume a Debian based distro in case it's not Arch and use apt.
   which pacman &>/dev/null &&
-    PKG_INSTALL="pacman -S --needed" ||
+    PKG_INSTALL="pacman -S --needed --noconfirm" ||
     PKG_INSTALL="apt install"
   # No need for sudo if we are already root
   test "$(whoami)" == "root" || PKG_INSTALL="sudo $PKG_INSTALL"
