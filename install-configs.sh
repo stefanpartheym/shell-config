@@ -72,6 +72,16 @@ mkdir -p $tmux_plugins_destination_dir &&
 result
 
 #
+# Install zellij config
+#
+
+zellij_config_dir="${destination_dir}/.config/zellij"
+step "Installing zellij configuration"
+mkdir -p $zellij_config_dir &&
+  cp $source_dir/zellij/config.kdl "${zellij_config_dir}/config.kdl"
+result
+
+#
 # Install vanilla neovim config
 #
 
