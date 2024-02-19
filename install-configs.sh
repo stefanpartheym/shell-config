@@ -18,14 +18,23 @@ tmux_destination_dir="${destination_dir}/.config/tmux"
 tmux_plugins_destination_dir="${tmux_destination_dir}/plugins"
 
 #
-# Install git config
+# Overwrite configs (git and neovim)
 #
 
 install_gitconfig="y"
-
 if [ -f "${destination_dir}/.${dot_file_gitconfig}" ]; then
   prompt install_gitconfig "Git configuration already exists, overwrite? (y/n) " "n"
 fi
+
+nvim_config_dir="${destination_dir}/.config/nvim"
+install_nvimconfig="y"
+if [ -f "${nvim_config_dir}/init.lua" ]; then
+  prompt install_nvimconfig "Neovim configuration already exists, overwrite? (y/n) " "n"
+fi
+
+#
+# Install git config
+#
 
 if [ "$install_gitconfig" == "y" ]; then
   current_git_user_email=$(git config user.email)
@@ -76,17 +85,22 @@ result
 #
 
 zellij_config_dir="${destination_dir}/.config/zellij"
+zellij_layouts_dir="${zellij_config_dir}/layouts"
 step "Installing zellij configuration"
 mkdir -p $zellij_config_dir &&
-  cp $source_dir/zellij/config.kdl "${zellij_config_dir}/config.kdl"
+  mkdir -p $zellij_layouts_dir &&
+  cp -R $source_dir/zellij/* $zellij_config_dir
 result
 
 #
 # Install vanilla neovim config
 #
 
-nvim_config_dir="${destination_dir}/.config/nvim"
-step "Installing neovim configuration"
-mkdir -p $nvim_config_dir &&
-  cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}"
-result
+if [ "$install_nvimconfig" == "y" ]; then
+  step "Installing neovim configuration"
+  mkdir -p $nvim_config_dir &&
+    cp "${source_dir}/nvim/${nvimconfig}" "${nvim_config_dir}/${nvimconfig}"
+  result
+else
+  echo "> Keeping current neovim configuration ..."
+fi

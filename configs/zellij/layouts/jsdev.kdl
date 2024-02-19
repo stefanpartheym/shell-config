@@ -1,0 +1,32 @@
+layout {
+    // layout
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+    pane split_direction="vertical" {
+        pane {
+            size "75%"
+            focus true
+            command "nvim"
+            start_suspended true
+        }
+        pane split_direction="horizontal" {
+            pane {
+                size "75%"
+                focus true
+                command "npm"
+                args "run" "test:watch"
+                start_suspended true
+            }
+            pane size="25%"
+        }
+    }
+
+    // template
+    new_tab_template {
+      pane size=1 borderless=true {
+          plugin location="zellij:compact-bar"
+      }
+      pane
+    }
+}
