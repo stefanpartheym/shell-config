@@ -7,22 +7,7 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
-
-    //resize {
-    //    //bind "Ctrl n" { SwitchToMode "Normal"; }
-    //    bind "h" "Left" { Resize "Increase Left"; }
-    //    bind "j" "Down" { Resize "Increase Down"; }
-    //    bind "k" "Up" { Resize "Increase Up"; }
-    //    bind "l" "Right" { Resize "Increase Right"; }
-    //    bind "H" { Resize "Decrease Left"; }
-    //    bind "J" { Resize "Decrease Down"; }
-    //    bind "K" { Resize "Decrease Up"; }
-    //    bind "L" { Resize "Decrease Right"; }
-    //    bind "=" "+" { Resize "Increase"; }
-    //    bind "-" { Resize "Decrease"; }
-    //}
     pane {
-        //bind "Ctrl p" { SwitchToMode "Normal"; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
@@ -39,7 +24,6 @@ keybinds clear-defaults=true {
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        //bind "Ctrl h" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
@@ -48,7 +32,6 @@ keybinds clear-defaults=true {
         bind "l" "Right" { MovePane "Right"; }
     }
     tab {
-        //bind "Ctrl t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         bind "l" "Right" "Down" "j" { GoToNextTab; }
@@ -70,14 +53,11 @@ keybinds clear-defaults=true {
         bind "Tab" { ToggleTab; }
     }
     scroll {
-        //bind "Ctrl s" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
-        //bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
-        //bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "Ctrl d" { HalfPageScrollDown; }
         bind "Ctrl u" { HalfPageScrollUp; }
         bind "g" { ScrollToTop; }
@@ -88,12 +68,9 @@ keybinds clear-defaults=true {
         // bind "Alt c" { Copy; }
     }
     search {
-        //bind "Ctrl s" { SwitchToMode "Normal"; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
-        //bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
-        //bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "Ctrl d" { HalfPageScrollDown; }
         bind "Ctrl u" { HalfPageScrollUp; }
         bind "g" { ScrollToTop; }
@@ -117,8 +94,6 @@ keybinds clear-defaults=true {
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        //bind "Ctrl o" { SwitchToMode "Normal"; }
-        //bind "Ctrl s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
             LaunchOrFocusPlugin "zellij:session-manager" {
@@ -128,34 +103,6 @@ keybinds clear-defaults=true {
             SwitchToMode "Normal"
         }
     }
-    //tmux {
-    //    // Detach from zellij.
-    //    bind "d" { Detach; }
-    //    // Ctrl-a while in TMUX mode will mimic the Ctrl-A key press.
-    //    bind "Ctrl a" { SwitchToMode "Normal"; Write 001; }
-    //    // Enter scroll edit mode
-    //    bind "i" { EditScrollback; SwitchToMode "Normal"; }
-    //    // Enter scroll mode and scroll by half a page.
-    //    bind "Ctrl u" { SwitchToMode "Scroll"; HalfPageScrollUp; }
-    //
-    //    bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
-    //    bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
-    //    bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-    //    bind "c" { NewTab; SwitchToMode "Normal"; }
-    //    bind "," { SwitchToMode "RenameTab"; }
-    //    bind "p" "Ctrl p" { GoToPreviousTab; SwitchToMode "Normal"; }
-    //    bind "n" "Ctrl n" { GoToNextTab; SwitchToMode "Normal"; }
-    //    bind "o" { FocusNextPane; SwitchToMode "Normal"; }
-    //    bind "x" { CloseFocus; SwitchToMode "Normal"; }
-    //
-    //    bind "w" {
-    //        LaunchOrFocusPlugin "zellij:session-manager" {
-    //            floating true
-    //            move_to_focused_tab true
-    //        };
-    //        SwitchToMode "Normal"
-    //    }
-    //}
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
@@ -169,10 +116,18 @@ keybinds clear-defaults=true {
         }
 
         // Navigate panes
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Alt h" { MoveFocusOrTab "Left"; }
+        bind "Alt l" { MoveFocusOrTab "Right"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+
+        // Resize panes
+        bind "Alt H" { Resize "Increase Left"; }
+        bind "Alt J" { Resize "Increase Down"; }
+        bind "Alt K" { Resize "Increase Up"; }
+        bind "Alt L" { Resize "Increase Right"; }
+        bind "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
 
         // Move panes
         // @todo: Currently not working: Terminal/Zellij does not understand keys.
@@ -181,14 +136,6 @@ keybinds clear-defaults=true {
         bind "Ctrl K" { MovePane "Up"; }
         bind "Ctrl L" { MovePane "Right"; }
 
-        // Resize panes
-        bind "Alt H" { Resize "Increase Left"; }
-        bind "Alt J" { Resize "Increase Down"; }
-        bind "Alt K" { Resize "Increase Up"; }
-        bind "Alt L" { Resize "Increase Right"; }
-        bind "Alt =" "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
-
         // Change pane layouts
         bind "Alt <" { PreviousSwapLayout; }
         bind "Alt >" { NextSwapLayout; }
@@ -196,15 +143,9 @@ keybinds clear-defaults=true {
     shared_except "normal" "locked" {
         bind "Enter" "Esc" "q" { SwitchToMode "Normal"; }
     }
-    //shared_except "tmux" "locked" {
-    //    bind "Ctrl a" { SwitchToMode "Tmux"; }
-    //}
     shared_except "pane" "locked" {
         bind "Alt p" { SwitchToMode "Pane"; }
     }
-    //shared_except "resize" "locked" {
-    //    bind "Alt r" { SwitchToMode "Resize"; }
-    //}
     shared_except "scroll" "locked" {
         bind "Alt f" { SwitchToMode "Scroll"; }
     }
