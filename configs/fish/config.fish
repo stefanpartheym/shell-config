@@ -18,7 +18,7 @@ set -gx PATH $PATH $HOME/.local/bin
 set -gx EDITOR nvim
 
 #
-# Setup aliases
+# Setup tools
 #
 
 # Git
@@ -34,40 +34,57 @@ if type -f git &>/dev/null
     alias gcob="gitext_checkout"
     alias gadd="gitext_add"
 end
+
 # Docker
 if type -f docker-compose &>/dev/null
     alias dc="docker-compose"
 end
+
 # Kubernetes
 if type -f kubectl &>/dev/null
     alias kc="kubectl"
 end
-# Other
+
+# eza
 if type -f eza &>/dev/null
     alias ls="eza --icons"
     alias la="ls -la"
 end
 
-#
-# Setup functions
-#
-
-# Create or attach to the default session
-function td --description 'Open tmux default session'
-    set session_name default
-    if tmux ls 2>/dev/null | cut -d ':' -f 1 | grep -qE "^$session_name\$"
-        tmux attach -t "$session_name"
-    else
-        tmux new -s "$session_name"
+# Tmux
+if type -f tmux &>/dev/null
+    # Create or attach to the default session
+    function td --description 'Open tmux default session'
+        set -l session_name default
+        if tmux ls 2>/dev/null | cut -d ':' -f 1 | grep -qE "^$session_name\$"
+            tmux attach -t "$session_name"
+        else
+            tmux new -s "$session_name"
+        end
     end
 end
 
-#
-# Setup tools
-#
-
+# Zoxide
 if type -f zoxide &>/dev/null
-    zoxide init fish | source
+    # Initialize zoxide without creating `z` and `zi` aliases.
+    zoxide init fish --no-cmd | source
+end
+
+# Zellij
+if type -f zellij &>/dev/null
+    # Setup command to attach to defeault session.
+    alias zd="zellij a -c default"
+    # Setup function to launch a zellij session in the current working directory.
+    function zell \
+        -a layout \
+        -d 'start zellij in current working directory and set session name accordingly'
+        set -l session_name $(basename $(pwd))
+        if test -z "$layout"
+            zellij -s $session_name
+        else
+            zellij -s $session_name -l $layout
+        end
+    end
 end
 
 #
