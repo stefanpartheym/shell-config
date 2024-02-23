@@ -61,6 +61,4 @@ else
   which pacman &>/dev/null &&
     PKG_INSTALL="yay -S --needed --noconfirm" ||
     PKG_INSTALL="apt install"
-  # No need for sudo if we are already root
-  test "$(whoami)" == "root" || PKG_INSTALL="sudo $PKG_INSTALL"
 fi
