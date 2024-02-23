@@ -40,6 +40,10 @@ step "Installing jq (Command-line JSON processor)"
 $PKG_INSTALL jq
 result
 
+step "Installing delta (git diff pager)"
+$PKG_INSTALL git-delta
+result
+
 step "Installing tmux"
 $PKG_INSTALL tmux
 result

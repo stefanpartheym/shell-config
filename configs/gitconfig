@@ -1,5 +1,6 @@
 [core]
     editor = nvim
+    pager = delta
 
 [user]
     email = @git.email@
@@ -10,6 +11,13 @@
 
 [diff]
     tool = meld
+    colorMoved = default
+
+[merge]
+    conflictstyle = diff3
+
+[interactive]
+    diffFilter = delta --color-only
 
 [http]
     sslverify = false
@@ -22,3 +30,8 @@
     tabsize = 4
     fontui = -family \"DejaVu Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
     fontdiff = -family \"Hack\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+
+[delta]
+    navigate = true # use n and N to move between diff sections
+    light = false   # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    syntax-theme = OneHalfDark
